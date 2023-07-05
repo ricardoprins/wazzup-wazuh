@@ -1,0 +1,63 @@
+version: '3.7'
+
+services:
+  wazuh:
+    image: wazuh/wazuh:latest
+    restart: always
+    hostname: wazuh-manager
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+    volumes:
+      - ./wazuh:/var/ossec/data
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - default
+
+  wazuh-nginx:
+    image: wazuh/wazuh-nginx:latest
+    restart: always
+    depends_on:
+      - kibana
+    ports:
+      - "${NGINX_PORT}:443"
+    environment:
+      - NGINX_PWD=${NGINX_PWD}
+      - KIBANA_URL=https://kibana:5601
+    networks:
+      - default
+
+  kibana:
+    image: wazuh/wazuh-kibana:latest
+    restart: always
+    hostname: kibana
+    depends_on:
+      - elasticsearch
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+    networks:
+      - default
+
+  elasticsearch:
+    image: wazuh/wazuh-elasticsearch:latest
+    restart: always
+    hostname: elasticsearch
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - ./elasticsearch:/usr/share/elasticsearch/data
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge
