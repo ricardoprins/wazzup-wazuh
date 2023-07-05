@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   wazuh:
-    image: wazuh/wazuh:latest
+    image: wazuh/wazuh:3.13.6_7.9.2 # latest not working for some mystic unknown reason
     restart: always
     hostname: wazuh-manager
     environment:

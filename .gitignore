@@ -4,3 +4,7 @@
 # IDE stuff
 .vscode/
 .idea/
+
+# containe local stuff
+elasticsearch/
+wazuh/
