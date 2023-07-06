@@ -55,7 +55,10 @@ git clone https://github.com/ricardoprins/wazzup-wazuh.git
 # Go to the directory
 cd wazzup-wazuh
 
-# Run Docker Compose
+# Generate SSL certs
+docker-compose -f generate-indexer-certs.yml run --rm generator
+
+# Evoke the final magic script
 docker-compose up -d
 ```
 
@@ -63,32 +66,11 @@ docker-compose up -d
 
 > "You miss 100% of the shots you don't take." - Wayne Gretzky - Michael Scott - Docker :basketball:
 
-So you've cloned the repository and you're eager to start. Your next step is to enter the vast and exciting world of Docker Compose! But don't worry, it's easier than making a decent cup of coffee in the Dunder Mifflin break room.
+Now, there's only one thing separating you from your Wazuh dashboard. 
 
-First, you're going to need to create a `.env` file to store environment variables (I've added a .env.example file that you can just copy/paste/rename if you want). It's a bit like your own personal R2-D2, carrying your most vital data. In the main directory of your cloned repository (that would be `wazzup-wazuh`), create a file called `.env` and add the following lines:
+Open your browser, navigate to https://localhost, and input the user/password combination
 
-```
-PUID=1000
-PGID=1000
-NGINX_PORT=443
-NGINX_PWD=<your-desired-password>
-```
-
-Replace `<your-desired-password>` with your chosen password for the Nginx server. And keep it secret. Keep it safe. Maybe don't go as far as tossing it into Mount Doom, but definitely don't write it on a Post-it note and stick it to your monitor. Unless, of course, you want an unexpected visit from the Dark Lord (or, worse, Toby from HR).
-
-Once you've done that, simply navigate to the directory (as though you're journeying through Middle-earth, but without the orcs) in your terminal, and run the following command:
-
-```
-docker-compose up -d
-```
-
-And voilà! You've just instructed Docker to create your environment in detached mode, faster than the Millennium Falcon on a good day.
-
-You might not be declaring a thumb war or leading an Ewok village, but in the world of cybersecurity, you're pretty much a hero now. Remember, “Do or do not. There is no try.” And you've definitely done it!
-
-Take a moment to enjoy this accomplishment. Breathe. Maybe eat a beet. Or a donut. You've earned it.
-
-And remember: "Your focus determines your reality" – Qui-Gon Jinn, and probably someone from IT, too.
+(the default values are admin:SecretPassword - these can be changed in the wazuh_indexer\internal_users.yml file)
 
 ---
 

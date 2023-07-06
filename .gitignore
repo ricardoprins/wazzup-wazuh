@@ -1,10 +1,7 @@
-# we don't want our secrets out there, right?
-.env
-
 # IDE stuff
 .vscode/
 .idea/
 
-# containe local stuff
-elasticsearch/
-wazuh/
+# SSL certs
+config/wazuh_indexer_ssl_certs/*.pem
+config/wazuh_indexer_ssl_certs/*.key
