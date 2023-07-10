@@ -1,0 +1,53 @@
+[+] Creating 1/1
+ ✔ Network wazzup-wazuh_default  Created                                                                           0.4s
+[+] Running 5/5
+ ✔ generator 4 layers [⣿⣿⣿⣿]      0B/0B      Pulled                                                                8.8s
+   ✔ d7bfe07ed847 Pull complete                                                                                    3.3s
+   ✔ a6023cfa8265 Pull complete                                                                                    4.8s
+   ✔ 6135753eefe9 Pull complete                                                                                    5.4s
+   ✔ 9aaf0dae5d3f Pull complete                                                                                    6.1s
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 26847  100 26847    0     0   340k      0 --:--:-- --:--:-- --:--:--  340k
+Cert tool exists in Packages bucket
+10/07/2023 16:57:54 INFO: Admin certificates created.
+10/07/2023 16:57:54 INFO: Wazuh indexer certificates created.
+10/07/2023 16:57:55 INFO: Wazuh server certificates created.
+10/07/2023 16:57:55 INFO: Wazuh dashboard certificates created.
+Moving created certificates to destination directory
+cp: cannot overwrite directory '/certificates/admin-key.pem' with non-directory
+cp: cannot overwrite directory '/certificates/admin.pem' with non-directory
+cp: cannot create regular file '/certificates/root-ca.key': Permission denied
+cp: cannot overwrite directory '/certificates/root-ca.pem' with non-directory
+cp: cannot overwrite directory '/certificates/wazuh.dashboard-key.pem' with non-directory
+cp: cannot overwrite directory '/certificates/wazuh.dashboard.pem' with non-directory
+cp: cannot overwrite directory '/certificates/wazuh.indexer-key.pem' with non-directory
+cp: cannot overwrite directory '/certificates/wazuh.indexer.pem' with non-directory
+cp: cannot overwrite directory '/certificates/wazuh.manager-key.pem' with non-directory
+cp: cannot overwrite directory '/certificates/wazuh.manager.pem' with non-directory
+changing certificate permissions
+Setting UID indexer and dashboard
+Setting UID for wazuh manager and worker
+cp: -r not specified; omitting directory '/certificates/root-ca.pem'
+cp: cannot create regular file '/certificates/root-ca-manager.key': Permission denied
+
+
+
+docker-compose up -d
+[+] Running 43/27
+ ✔ wazuh.dashboard 10 layers [⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]      0B/0B      Pulled                                                 273.1s
+ ✔ wazuh.indexer 14 layers [⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]      0B/0B      Pulled                                               350.0s
+ ✔ wazuh.manager 16 layers [⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]      0B/0B      Pulled                                             287.0s
+
+
+[+] Running 2/3
+ ✔ Container wazzup-wazuh-wazuh.manager-1    Started                                                              18.0s
+ - Container wazzup-wazuh-wazuh.indexer-1    Starting                                                             20.1s
+ ✔ Container wazzup-wazuh-wazuh.dashboard-1  Created                                                               1.5s
+Error response from daemon: failed to create task for container: 
+failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: 
+error mounting "/run/desktop/mnt/host/c/Users/Alex/Documents/Programming/wazzup-wazuh/config/wazuh_indexer_ssl_certs/admin-key.pem" to rootfs at 
+"/usr/share/wazuh-indexer/certs/admin-key.pem": 
+mount /run/desktop/mnt/host/c/Users/Alex/Documents/Programming/wazzup-wazuh/config/wazuh_indexer_ssl_certs/admin-key.pem:
+/usr/share/wazuh-indexer/certs/admin-key.pem (via /proc/self/fd/9), flags: 0x5000: not a directory: 
+unknown: Are you trying to mount a directory onto a file (or vice-versa)? Check if the specified host path exists and is the expected type
