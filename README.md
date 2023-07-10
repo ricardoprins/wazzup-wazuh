@@ -36,7 +36,7 @@ Here's how you can get your Docker environment up and running faster than Han So
 3. Run the installer.
 4. Show the world that Macs aren’t just for graphic design.
 
-**NOTE: This doesn't work on Macs with ARM chips.**
+**NOTE: This repo magic doesn't work on Macs with ARM chips.**
 
 ### Linux
 
