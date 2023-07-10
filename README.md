@@ -36,6 +36,8 @@ Here's how you can get your Docker environment up and running faster than Han So
 3. Run the installer.
 4. Show the world that Macs aren’t just for graphic design.
 
+**NOTE: This doesn't work on Macs with ARM chips.**
+
 ### Linux
 
 > _"One Docker to rule them all."_
@@ -66,7 +68,7 @@ docker-compose up -d
 
 > "You miss 100% of the shots you don't take." - Wayne Gretzky - Michael Scott - Docker :basketball:
 
-Now, there's only one thing separating you from your Wazuh dashboard. 
+Now, there's only one thing separating you from your Wazuh dashboard.
 
 Open your browser, navigate to https://localhost, and input the user/password combination
 
